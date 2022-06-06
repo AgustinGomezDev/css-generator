@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.svg" type="image/svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>CSS Generator</title>
+</head>
+<body>
+    <div id="alert" class="alert">
+        <img id="alert-close" class="alert-close" src="x.svg" alt="">
+            <div class="alert-info">
+                <p class="alert-title">Your code</p>
+                <p id="code" class="alert-code"></p>
+                <button id="alert-btn" class="alert-btn">Copy</button>
+            </div>
+            
+    </div>
+    <header class="header">
+        <ul class="list">
+            <li id="1" class="list-item list-item-active">box-shadow</li>
+            <li id="2" class="list-item">text-shadow (SOON)</li>
+            <li id="3" class="list-item">border-radius (SOON)</li>
+            <li id="3" class="list-item">border-radius (SOON)</li>
+        </ul>
+        <button id="show-code" class="blue-btn">Show code</button>
+    </header>
+    <main class="layout">
+        <section class="customize-shadow">
+            <p class="customize-shadow-title">Customize shadow</p>
+            <div class="customize-shadow-fields radio">
+                <div class="radio-fields">
+                    <input id="outside" class="radio-custom" type="radio">
+                    <label>Outside</label>
+                </div>
+                <div class="radio-fields">
+                    <input id="inside" class="radio-custom" type="radio">
+                    <label>Inside</label>
+                </div>
+            </div>
+            <div class="customize-shadow-fields">
+                <div class="customize-shadow-fields-info">
+                    <label>Horizontal offset</label>
+                    <input id="horizontal-offset-num"  type="number" value="0" min="-300" max="300" onchange="updateHorizontalOffset(value)">
+                </div>
+                <input id="horizontal-offset" min="-300" max="300" value="0" type="range" onchange="updateHorizontalOffset(value)"> 
+            </div>
+            <div class="customize-shadow-fields">
+                <div class="customize-shadow-fields-info">
+                    <label>Vertical offset</label>
+                    <input id="vertical-offset-num" type="number" value="0" min="-300" max="300" onchange="updateVerticalOffset(value)">
+                </div>
+                <input id="vertical-offset" min="-300" max="300" value="0" type="range" onchange="updateVerticalOffset(value)">
+            </div>
+            <div class="customize-shadow-fields">
+                <div class="customize-shadow-fields-info">
+                    <label>Blur radius</label>
+                    <input id="blur-radius-num" type="number" value="0" min="0" max="100" onchange="updateBlurRadius(value)">
+                </div>
+                <input id="blur-radius" min="0" max="100" value="0" type="range" onchange="updateBlurRadius(value)"> 
+            </div>
+            <div class="customize-shadow-fields">
+                <div class="customize-shadow-fields-info">
+                    <label>Spread radius</label>
+                    <input id="spread-radius-num" type="number" value="0" min="-120" max="100" onchange="updateSpreadRadius(value)">
+                </div>
+                <input id="spread-radius" min="-120" max="100" value="0" type="range" onchange="updateSpreadRadius(value)"> 
+            </div>
+            <div class="customize-shadow-fields">
+                <label>Color</labe value="0"l>
+                <input id="color" type="text" placeholder="#1893EC" onchange="updateColor()">
+            </div>
+            <button id="reset-shadow" class="reset-btn">Reset</button>
+        </section> <!-- customize-shadow -->
+        <section class="display">
+            <div id="display-box" class="display-box"></div>
+        </section> <!-- display -->
+        <section class="customize-box">
+            <p class="customize-box-title">Customize box</p>
+            <div class="customize-box-fields">
+                <div class="customize-box-fields-info">
+                    <label>Width</label>
+                    <input id="width-num" type="number" min="0" max="350" value="300" onchange="updateWidth(value)">
+                </div>
+                <input id="width" type="range" min="0" max="350" value="300" onchange="updateWidth(value)">
+            </div>
+            <div class="customize-box-fields">
+                <div class="customize-box-fields-info">
+                    <label>Height</label>
+                    <input id="height-num" type="number" min="0" max="350" value="300" onchange="updateHeight(value)">
+                </div>
+                <input id="height" type="range" min="0" max="350" value="300" onchange="updateHeight(value)">
+            </div>
+            <div class="customize-box-fields">
+                <div class="customize-box-fields-info">
+                    <label>Border radius</label>
+                    <input id="border-radius-num" type="number" min="0" max="150" value="15" onchange="updateBorderRadius(value)">
+                </div>
+                <input id="border-radius" type="range" min="0" max="150" value="15" onchange="updateBorderRadius(value)">
+            </div>
+            <div class="customize-box-fields">
+                <div class="customize-box-fields-info">
+                    <label>Border width</label>
+                    <input id="border-width-num" type="number" min="0" max="100" value="0" onchange="updateBorderWidth(value)">
+                </div>
+                <input id="border-width" type="range" min="0" max="100" value="0" onchange="updateBorderWidth(value)">
+            </div>
+            <div class="customize-box-fields">
+                <label>Border color</label>
+                <input id="border-color" type="text" placeholder="#000" onchange="updateBorderColor()">
+            </div>
+            <div class="customize-box-fields">
+                <label>Background color</label>
+                <input id="background-color" type="text" placeholder="#fff" onchange="updateBackgroundColor()">
+            </div>
+            <button id="reset-box" class="reset-btn">Reset</button>
+        </section> <!-- customize-box -->
+    </main>
+    <footer class="footer">
+        <p class="autor">App made by: <a class="autor-link" href="https://github.com/AgustinGomezDev" target="_blank">Agustín Gómez</a></p>
+    </footer>
+    <script src="box-shadow.js"></script>
+</body>
+</html>
